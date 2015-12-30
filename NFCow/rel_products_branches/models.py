@@ -10,4 +10,4 @@ class Rel_Product_Branch(models.Model):
 	availability = models.NullBooleanField()
 	
 	def __str__(self):
-		return self.branch.name + " - " + self.product.public_name
+		return self.product.public_name + " ; " + self.branch.name

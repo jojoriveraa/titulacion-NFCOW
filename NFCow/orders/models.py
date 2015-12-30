@@ -5,11 +5,11 @@ from branches.models import Branch
 
 # Create your models here.
 class Order(models.Model):
-	dateTime = models.DateTimeField()
+	date_time = models.DateTimeField()
 	total = models.DecimalField(max_digits = 5, decimal_places = 2)
 	status = models.PositiveIntegerField()
 	user = models.ForeignKey(User)
 	branch = models.ForeignKey(Branch)
-	
+
 	def __str__(self):
-		return self.id + "/" + self.user + "-" + self.branch
+		return self.date_time.strftime("%Y-%m-%d %H:%M:%S") + " ; " + self.branch.name + " ; " + self.user.first_name

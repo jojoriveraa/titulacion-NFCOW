@@ -8,5 +8,13 @@ class Mall(models.Model):
 	image = models.ImageField(upload_to = 'malls')
 	postcode = models.PositiveIntegerField()
 	
+	def img(self):
+		return """
+			<img src="%s" height="42" width="42"> 
+		""" % self.image.url
+	
+	img.allow_tags = True
+	img.admin_order_field = 'image'
+	
 	def __str__(self):
 		return self.name

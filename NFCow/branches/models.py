@@ -9,5 +9,18 @@ class Branch(models.Model):
 	restaurant = models.ForeignKey(Restaurant)
 	mall = models.ForeignKey(Mall)
 	
+	def imgRestaurant(self):
+		return """
+			<img src="%s" height="42"> 
+		""" % self.restaurant.image.url
+		
+	def imgMall(self):
+		return """
+			<img src="%s" height="42"> 
+		""" % self.mall.image.url
+		
+	imgRestaurant.allow_tags = True
+	imgMall.allow_tags = True
+	
 	def __str__(self):
 		return self.name
