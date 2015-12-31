@@ -18,8 +18,13 @@ from django.conf.urls import url
 from django.conf import settings
 from django.contrib import admin
 
+from branches.views import BranchDetailView
+from branches.views import BranchListView
+
 
 urlpatterns = [
+    url(r'^branches/(?P<pk>[\d]+)', BranchDetailView.as_view(), ),
+    url(r'^branches/$', BranchListView.as_view(), ),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
     url(r'^admin/', admin.site.urls),
 ]

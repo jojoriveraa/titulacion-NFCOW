@@ -1,0 +1,12 @@
+<html>
+    <body>
+     
+        {% for b in branches %}
+            <h1> {{ b.name }} </h1>
+            <img src={{ b.restaurant.image.url }} height="42">
+            
+            {% empty %}
+            <li>No articles yet.</li>
+        {% endfor %}
+    </body>
+</html>
