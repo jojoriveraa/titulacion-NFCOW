@@ -21,10 +21,16 @@ from django.contrib import admin
 from branches.views import BranchDetailView
 from branches.views import BranchListView
 
+from products.views import ProductDetailView
+
+from rel_products_branches.views import ProductInBranchListView
+
 
 urlpatterns = [
-    url(r'^branches/(?P<pk>[\d]+)', BranchDetailView.as_view(), ),
-    url(r'^branches/$', BranchListView.as_view(), ),
+    url(r'^branches/(?P<pk>[\d]+)', BranchDetailView.as_view()),
+    url(r'^branches/', BranchListView.as_view()),
+    url(r'^products/(?P<pk>[\d]+)', ProductDetailView.as_view()),
+    url(r'^menu/([\d]+)', ProductInBranchListView.as_view()),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
     url(r'^admin/', admin.site.urls),
 ]
