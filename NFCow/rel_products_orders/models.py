@@ -12,4 +12,4 @@ class Rel_Product_Order(models.Model):
 		return self.product.price
 	
 	def __str__(self):
-		return self.order.date_time.strftime("%Y-%m-%d %H:%M:%S") + " ; " + self.product.public_name
+		return self.order.payment_date_time.strftime("%Y-%m-%d %H:%M:%S") + " ; " + self.order.user() + " ; " + self.product.name
