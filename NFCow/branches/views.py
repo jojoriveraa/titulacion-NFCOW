@@ -27,5 +27,5 @@ class BranchListView(ListView):
 		context['now'] = timezone.now()
 		return context
 		
-	# def get_queryset(self):
-	# 	return Rel_Product_Branch.objects.filter(branch_id = int(self.args[0]))
+	def get_queryset(self):
+		return Branch.objects.filter(mall_id = int(self.args[0]))
