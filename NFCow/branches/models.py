@@ -13,12 +13,12 @@ class Branch(models.Model):
 		return """
 			<img src="%s" height="42"> 
 		""" % self.restaurant.image.url
-		
+	
 	def imgMall(self):
 		return """
 			<img src="%s" height="42"> 
 		""" % self.mall.image.url
-		
+	
 	imgRestaurant.allow_tags = True
 	imgMall.allow_tags = True
 	
