@@ -5,7 +5,7 @@ from .models import Rel_Product_Branch
 
 class Rel_Product_BranchAdmin(admin.ModelAdmin):
 		list_display = ('branch', 'product', 'availability',  )
-		list_filter = ('branch', 'product',  )
+		list_filter = ('branch', 'product__product_super',  )
 		search_fields = ('branch', 'product',  )
 		list_editable = ('product', 'availability', )
 		
