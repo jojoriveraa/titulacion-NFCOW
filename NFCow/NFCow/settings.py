@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'rel_products_orders',
     'rel_products_restaurants',
     'rel_users_products',
+    'categories',
+    'products_catalogue',
 ]
 
 MIDDLEWARE_CLASSES = [

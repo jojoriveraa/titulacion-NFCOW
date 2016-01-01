@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Restaurant
 
 class RestaurantAdmin(admin.ModelAdmin):
-		list_display = ('name', 'style', 'img', )
-		search_fields = ('name', 'style', )
+		list_display = ('name', 'img', )
+		search_fields = ('name', )
 
 admin.site.register(Restaurant, RestaurantAdmin)

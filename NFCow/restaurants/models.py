@@ -1,10 +1,11 @@
 from django.db import models
+from categories.models import Category
 
 # Create your models here.
 class Restaurant(models.Model):
 	name = models.CharField(max_length = 255)
-	style = models.CharField(max_length = 255)
 	image = models.ImageField(upload_to = 'restaurants')
+	categories = models.ManyToManyField('categories.Category', blank = True, related_name = 'restaurants_category',)
 	
 	def img(self):
 		return """
