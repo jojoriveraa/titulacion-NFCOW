@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rel_users_products',
     'categories',
     'products_catalogue',
+    'shopping_carts',
+    'rel_products_shopping_carts',
 ]
 
 MIDDLEWARE_CLASSES = [
