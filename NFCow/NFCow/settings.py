@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'products_catalogue',
     'shopping_carts',
     'rel_products_shopping_carts',
+    'types_of_payment',
 ]
 
 MIDDLEWARE_CLASSES = [
