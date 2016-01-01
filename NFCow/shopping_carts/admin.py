@@ -7,4 +7,4 @@ class Shopping_CartAdmin(admin.ModelAdmin):
 		list_display = ('id', 'date_time', 'user', )
 		list_filter = ('date_time', )
 
-admin.site.register(Shopping_Cart, )
+admin.site.register(Shopping_Cart, Shopping_CartAdmin)
