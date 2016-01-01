@@ -16,9 +16,7 @@ class BranchDetailView(DetailView):
 
 class BranchListView(ListView):
 	model = Branch
-	
 	model.allow_tags = True
-	
 	context_object_name = 'branches'
 	
 	def get_template_names(self):
@@ -28,3 +26,6 @@ class BranchListView(ListView):
 		context = super(BranchListView, self).get_context_data(**kwargs)
 		context['now'] = timezone.now()
 		return context
+		
+	# def get_queryset(self):
+	# 	return Rel_Product_Branch.objects.filter(branch_id = int(self.args[0]))

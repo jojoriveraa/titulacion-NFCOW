@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'users',
     'rel_products_branches',
     'rel_products_orders',
-    'rel_products_restaurants',
     'rel_users_products',
     'categories',
     'products_catalogue',

@@ -3,7 +3,7 @@
      
         {% for p_in_b in products_in_branch %}
             <h1> {{ p_in_b.branch }} | {{ p_in_b.product }} </h1>
-            <img src={{ p_in_b.product.image.url }} height="42">
+            <img src={{ p_in_b.product.product_super.image.url }} height="42">
             
             {% empty %}
             <li>No articles yet.</li>
