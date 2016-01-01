@@ -4,9 +4,9 @@ from django.contrib import admin
 from .models import Product
 
 class ProductAdmin(admin.ModelAdmin):
-		list_display = ('public_name', 'private_name', 'price', 'discount', 'img', )
-		list_filter = ('public_name', )
-		search_fields = ('public_name', 'private_name', )
+		list_display = ('name', 'price', 'discount', 'img', )
+		list_filter = ('product_super__name', )
+		search_fields = ('name', )
 
 
 admin.site.register(Product, ProductAdmin, )
