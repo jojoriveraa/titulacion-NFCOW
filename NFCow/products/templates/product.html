@@ -1,11 +1,13 @@
 <html>
     <body>
-     
+     {{now}}
             <h1> {{product.name}} </h1>
 			<h2> {{product.price}} </h2>
             <img src={{ product.product_super.image.url }} height="42">
-			<p>
-				<a href="#"> Add to Shopping Cart </a>
-			</p>
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<input type="submit" value="Aceptar" />
+			</form>
     </body>
 </html>

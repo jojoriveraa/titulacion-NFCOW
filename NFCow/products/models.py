@@ -12,7 +12,7 @@ class Product(models.Model):
 		return """
 			<img src="%s" height="42"> 
 		""" % self.product_super.image.url
-		
+	
 	img.allow_tags = True
 	
 	def __str__(self):
