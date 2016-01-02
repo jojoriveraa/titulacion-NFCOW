@@ -1,25 +1,16 @@
-from django.shortcuts import render
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from django.views.generic.edit import FormView
-from django.views.generic.edit import FormMixin
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import login
 
-from django.utils import timezone
-
-from .models import Product
 from .forms import ProductForm
+from .models import Product
+
 # Create your views here.
-
-class ProductDetailView(FormMixin, DetailView):
-	model = Product
-	context_object_name = 'product'
-	form_class = ProductForm
+def product_detail(request, id):
+	form = ProductForm(request.POST or None)
 	
-	def get_template_names(self):
-		return 'product.html'
-
-	def get_context_data(self, **kwargs):
-		context = super(ProductDetailView, self).get_context_data(**kwargs)
-		context['form'] = ProductForm()
-		context['now'] = timezone.now()
-		return context
+	product = get_object_or_404(Product, id = id)
+	
+	# if form.is_valid():
+	# 	form.save()
+	
+	return render(request, 'product.html', {'form' : form, 'product' : product})
