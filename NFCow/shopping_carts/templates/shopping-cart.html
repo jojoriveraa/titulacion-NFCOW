@@ -7,7 +7,10 @@
                 <h2> {{ scp.product.product_super }} </h2>
                 
                 <p>
-                    $ {{ scp.product.price }}
+                    $ {{ scp.product.price }} x {{ scp.quantity }}
+                </p>
+                <p>
+                    subtotal = $ {% widthratio scp.quantity 1 scp.product.price %}
                 </p>
                 <p>
                     <img src={{ scp.product.product_super.image.url }} height="42">
@@ -19,7 +22,7 @@
             {% endfor %}
             <form action="" method="post">
 				{% csrf_token %}
-				{{ form.as_p}}
+				{{ form.as_p }}
 				<input type="submit" value="Pagar" />
 			</form>
     </body>

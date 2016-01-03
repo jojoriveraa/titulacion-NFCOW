@@ -16,8 +16,11 @@ class ShoppingCartListView(ListView):
 		
 	def get_context_data(self, **kwargs):
 		context = super(ShoppingCartListView, self).get_context_data(**kwargs)
-		context['now'] = timezone.now()
+		context['now'] = timezone.now()	
 		return context
 		
 	def get_queryset(self):
 		return Rel_Product_Shopping_Cart.objects.filter(shopping_cart_id = int(self.args[0]))
+	
+	def multiply(value, arg):
+		return value*arg
