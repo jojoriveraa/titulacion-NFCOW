@@ -22,9 +22,9 @@ from django.contrib import admin
 from branches.views import BranchListView
 from products.views import product_detail
 from rel_products_branches.views import ProductInBranchListView
-from shopping_carts.views import ShoppingCartListView
-from shopping_carts.views import cancel_shopping_cart
+from shopping_carts.views import ShoppingCartListView, cancel_shopping_cart
 from rel_products_shopping_carts.views import product_remove
+from orders.views import OrderDetailView, OrderListView
 
 
 urlpatterns = [
@@ -36,5 +36,7 @@ urlpatterns = [
     url(r'^shopping-cart-cancel/', cancel_shopping_cart, name='shopping-cart-cancel'),    
     url(r'^shopping-cart-remove/(?P<id>[\d]+)/(?P<sc>[\d]+)', product_remove, name='shopping-cart-remove-product'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
+    url(r'^orders/', OrderListView.as_view(), name='orders-list'),    
+    url(r'^order-detail/(?P<pk>[\d]+)', OrderDetailView.as_view(), name='order-detail'),    
     url(r'^admin/', admin.site.urls),
 ]

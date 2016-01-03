@@ -29,7 +29,6 @@ def product_detail(request, id):
 			shc_id = q_shopping_cart.id
 			Rel_Product_Shopping_Cart.objects.create(product = q_product, quantity = q_quantity, shopping_cart = q_shopping_cart)
 			
-			# return render(request, 'test.html', {'id': id, 'quantity' : q_quantity, 'shopping_cart' : q_shopping_cart, })
 			return HttpResponseRedirect('/shopping-cart/%s' % shc_id)
 	else:
 		form = ProductForm(request.POST or None)
