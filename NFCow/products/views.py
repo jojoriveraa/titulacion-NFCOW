@@ -17,11 +17,12 @@ def product_detail(request, id):
 			q_customerprofile = CustomerProfile.objects.filter(user = request.user)[0]
 			
 			q1 = Shopping_Cart.objects.filter(customer__user = request.user)
+			q2 = q1.filter(available = True)
 			
-			if not q1:
+			if not q2:
 				q_shopping_cart = Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), customer = q_customerprofile)
 			else:
-				q2 = q1.order_by('date_time').reverse()[0]
+				q3 = q2.order_by('date_time').reverse()[0]
 				q_shopping_cart = q2
 			
 			
