@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class CustomerProfiles(models.Model):
+class CustomerProfile(models.Model):
     user = models.OneToOneField(User)
     direccion = models.TextField()
     admin = models.NullBooleanField()
