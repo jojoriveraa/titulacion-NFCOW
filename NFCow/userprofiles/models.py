@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class CustomerProfiles(models.Model):
     user = models.OneToOneField(User)
     direccion = models.TextField()
+    admin = models.NullBooleanField()
     profile_picture = models.ImageField(upload_to='Customers', blank=True)
     
     def __str__(self):

@@ -7,7 +7,7 @@ class Product_catalogue(models.Model):
 	name = models.CharField(max_length = 255)
 	description = models.TextField(blank = True)
 	image = models.ImageField(upload_to = 'products_catalogue')
-	category = models.ManyToManyField('categories.Category', blank = True, related_name = 'products_category',)
+	categories = models.ManyToManyField('categories.Category', blank = True, related_name = 'products_category',)
 	restaurant = models.ForeignKey(Restaurant, blank = True)
 	
 	def img(self):

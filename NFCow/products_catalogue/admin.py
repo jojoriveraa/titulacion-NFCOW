@@ -5,8 +5,6 @@ from .models import Product_catalogue
 
 class Product_catalogueAdmin(admin.ModelAdmin):
 		list_display = ('name', 'description', 'img', )
-		# list_filter = ('restaurant', 'mall', )
-		# search_fields = ('restaurant', 'mall', )
-		# list_editable = ('restaurant', 'mall', )
+		filter_horizontal = ('categories', )
 		
 admin.site.register(Product_catalogue, Product_catalogueAdmin, )
