@@ -6,7 +6,7 @@ from types_of_payment.models import TypeOfPayment
 # Create your models here.
 class Order(models.Model):
 	payment_date_time = models.DateTimeField()
-	total = models.DecimalField(max_digits = 5, decimal_places = 2)
+	total = models.CharField(max_length = 7)
 	shopping_cart = models.ForeignKey(Shopping_Cart)
 	type_of_payment = models.ForeignKey(TypeOfPayment)
 	

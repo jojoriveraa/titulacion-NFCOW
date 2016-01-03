@@ -5,7 +5,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
 from .models import Shopping_Cart
+from orders.models import Order
 from rel_products_shopping_carts.models import Rel_Product_Shopping_Cart
+from types_of_payment.models import TypeOfPayment
 from userprofiles.models import CustomerProfile
 # Create your views here.
 
@@ -13,6 +15,17 @@ def cancel_shopping_cart(request):
 	q_customerprofile = CustomerProfile.objects.filter(user = request.user)[0]
 	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), customer = q_customerprofile)
 	return HttpResponseRedirect('/branches/1')
+
+def pay_shopping_cart(request, total, sc_id, top_id):
+	my_payment_date_time = timezone.now()
+	my_total = total
+	my_shopping_cart = Shopping_Cart.objects.filter(id = sc_id)[0]
+	my_type_of_payment = TypeOfPayment.objects.filter(id = top_id)[0]
+	order = Order.objects.create(payment_date_time = my_payment_date_time, total = my_total, shopping_cart = my_shopping_cart, type_of_payment = my_type_of_payment)
+	q_customerprofile = CustomerProfile.objects.filter(user = request.user)[0]
+	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), customer = q_customerprofile)
+	return HttpResponseRedirect('/order-detail/%s' % order.id)
+	
 
 class ShoppingCartListView(ListView):
 	model = Rel_Product_Shopping_Cart
