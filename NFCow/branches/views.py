@@ -24,6 +24,7 @@ class BranchListView(ListView):
 	def get_context_data(self, **kwargs):
 		context = super(BranchListView, self).get_context_data(**kwargs)
 		context['now'] = timezone.now()
+		context['user'] = self.request.user
 		return context
 		
 	def get_queryset(self):
