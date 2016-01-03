@@ -29,12 +29,12 @@ from rel_products_shopping_carts.views import product_remove
 
 urlpatterns = [
     # url(r'^branches/(?P<pk>[\d]+)', BranchDetailView.as_view()),
-    url(r'^branches/([\d]+)$', BranchListView.as_view(), name='product-list'),
-    url(r'^products/(?P<id>[\d]+)$', product_detail, name='product-detail'),
-    url(r'^menu/([\d]+)$', ProductInBranchListView.as_view(), name='branch-menu'),
-    url(r'^shopping-cart/([\d]+)$', ShoppingCartListView.as_view(), name='shopping-cart'),
-    url(r'^shopping-cart-cancel/$', cancel_shopping_cart, name='shopping-cart-cancel'),    
-    url(r'^shopping-cart-remove/(?P<id>[\d]+)/(?P<sc>[\d]+)$', product_remove, name='shopping-cart-remove-product'),
+    url(r'^branches/([\d]+)', BranchListView.as_view(), name='product-list'),
+    url(r'^products/(?P<id>[\d]+)', product_detail, name='product-detail'),
+    url(r'^menu/([\d]+)', ProductInBranchListView.as_view(), name='branch-menu'),
+    url(r'^shopping-cart/([\d]+)', ShoppingCartListView.as_view(), name='shopping-cart'),
+    url(r'^shopping-cart-cancel/', cancel_shopping_cart, name='shopping-cart-cancel'),    
+    url(r'^shopping-cart-remove/(?P<id>[\d]+)/(?P<sc>[\d]+)', product_remove, name='shopping-cart-remove-product'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
     url(r'^admin/', admin.site.urls),
 ]
