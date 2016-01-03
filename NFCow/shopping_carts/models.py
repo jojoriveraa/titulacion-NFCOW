@@ -1,5 +1,4 @@
 from django.db import models
-from users.models import User
 from userprofiles.models import CustomerProfiles
 
 # Create your models here.
