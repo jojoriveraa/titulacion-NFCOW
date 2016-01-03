@@ -8,4 +8,3 @@ class Shopping_Cart(models.Model):
 	
 	def __str__(self):
 		return self.user.first_name + ' ; ' + self.date_time.strftime("%Y-%m-%d %H:%M:%S")
-		

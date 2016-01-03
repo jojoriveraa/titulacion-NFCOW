@@ -16,7 +16,6 @@ class BranchDetailView(DetailView):
 
 class BranchListView(ListView):
 	model = Branch
-	model.allow_tags = True
 	context_object_name = 'branches'
 	
 	def get_template_names(self):

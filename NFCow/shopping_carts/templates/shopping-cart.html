@@ -1,0 +1,26 @@
+<html>
+    <body>
+		<h1> Carrito de compra: {{shopping_cart_products.0.shopping_cart}} </h1>
+            
+            {% for scp in shopping_cart_products %}
+            
+                <h2> {{ scp.product.product_super }} </h2>
+                
+                <p>
+                    $ {{ scp.product.price }}
+                </p>
+                <p>
+                    <img src={{ scp.product.product_super.image.url }} height="42">
+                </p>
+                
+                {% empty %}
+                
+                <li>Tu carrito de compra está vacio</li>
+            {% endfor %}
+            <form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<input type="submit" value="Pagar" />
+			</form>
+    </body>
+</html>

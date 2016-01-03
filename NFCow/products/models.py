@@ -5,7 +5,6 @@ from products_catalogue.models import Product_catalogue
 class Product(models.Model):
 	name = models.CharField(max_length = 255)
 	price = models.DecimalField(max_digits = 5, decimal_places = 2)
-	discount = models.PositiveIntegerField(blank = True)
 	product_super = models.ForeignKey(Product_catalogue)
 	
 	def img(self):
