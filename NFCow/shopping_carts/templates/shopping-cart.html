@@ -15,15 +15,18 @@
                 <p>
                     <img src={{ scp.product.product_super.image.url }} height="42">
                 </p>
-                
+                <p>
+                <a href="#"> Quitar </a>
+            </p>
                 {% empty %}
                 
                 <li>Tu carrito de compra está vacio</li>
             {% endfor %}
-            <form action="" method="post">
-				{% csrf_token %}
-				{{ form.as_p }}
-				<input type="submit" value="Pagar" />
-			</form>
+            <h2> 
+                Total: $ {{ total }}
+            </h2>
+            <p>
+                <a href="#"> Pagar </a> <a href="#"> Cancelar </a>
+            </p>
     </body>
 </html>

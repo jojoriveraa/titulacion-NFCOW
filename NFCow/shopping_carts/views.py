@@ -16,11 +16,16 @@ class ShoppingCartListView(ListView):
 		
 	def get_context_data(self, **kwargs):
 		context = super(ShoppingCartListView, self).get_context_data(**kwargs)
-		context['now'] = timezone.now()	
+		context['now'] = timezone.now()
+		context['total'] = self.get_total()
 		return context
-		
+	
 	def get_queryset(self):
 		return Rel_Product_Shopping_Cart.objects.filter(shopping_cart_id = int(self.args[0]))
 	
-	def multiply(value, arg):
-		return value*arg
+	def get_total(self):
+		products_in_sc = self.get_queryset()
+		total = 0
+		for scp in products_in_sc:
+			total += scp.product.price * scp.quantity
+		return total
