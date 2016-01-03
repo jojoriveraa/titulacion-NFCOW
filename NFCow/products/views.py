@@ -6,14 +6,15 @@ from .forms import ProductForm
 from .models import Product
 from shopping_carts.models import Shopping_Cart
 from userprofiles.models import CustomerProfile
+from rel_products_shopping_carts.models import Rel_Product_Shopping_Cart
 
 # Create your views here.
 def product_detail(request, id):
 	if request.method == 'POST':
 		form = ProductForm(request.POST)
 		if form.is_valid():
-			id = id
-			quantity = form.cleaned_data['quantity']
+			q_product = Product.objects.filter(id = id)[0]
+			q_quantity = form.cleaned_data['quantity']
 			q_customerprofile = CustomerProfile.objects.filter(user = request.user)[0]
 			
 			q1 = Shopping_Cart.objects.filter(customer__user = request.user)
@@ -23,12 +24,13 @@ def product_detail(request, id):
 				q_shopping_cart = Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), customer = q_customerprofile)
 			else:
 				q3 = q2.order_by('date_time').reverse()[0]
-				q_shopping_cart = q2
+				q_shopping_cart = q3
 			
+			shc_id = q_shopping_cart.id
+			Rel_Product_Shopping_Cart.objects.create(product = q_product, quantity = q_quantity, shopping_cart = q_shopping_cart)
 			
-			
-			return render(request, 'test.html', {'id': id, 'quantity' : quantity, 'shopping_cart' : q_shopping_cart, })
-			# return HttpResponseRedirect('/shopping-cart/1')
+			# return render(request, 'test.html', {'id': id, 'quantity' : q_quantity, 'shopping_cart' : q_shopping_cart, })
+			return HttpResponseRedirect('/shopping-cart/%s' % shc_id)
 	else:
 		form = ProductForm(request.POST or None)
 		product = get_object_or_404(Product, id = id)
