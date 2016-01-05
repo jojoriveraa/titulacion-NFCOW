@@ -1,0 +1,69 @@
+.nav{
+	background-color: #F05959;
+}
+.nav a{
+	color: #F8F1E9;
+	font-size: 11px;
+	font-weight: bold;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-transform: uppercase;
+}
+
+.nav li{
+	display: inline;
+}
+
+.jumbotron {
+	height: 500px;
+	background-image: url('http://wallcomphd.com/wp-content/uploads/2015/07/Blue-Black-Yellow-Red-Material-Design-Wallpaper-HD-For-Android.png');
+}
+
+.jumbotron h1{
+	color: #fff;
+	font-family: 'Shift',sans-serif;
+	font-size: 48px;
+	font-weight: bold;
+}
+
+.jumbotron p{
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.jumbotron .container{
+	position: relative;
+	top: 100px;
+}
+
+.restaurant-guides{
+	background-color: #efefef;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.restaurant-guides h2{
+	color: #393c3d;
+	font-size: 24px;
+}
+
+.restaurant-guides p{
+	font-size: 15px;
+	margin-bottom: 13px;
+}
+
+.learn-more {
+	background-color: #f7f7f7;
+}
+
+.learn-more h3{
+	font-family: 'Shift',sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.learn-more a{
+	color: #00b0ff;
+}

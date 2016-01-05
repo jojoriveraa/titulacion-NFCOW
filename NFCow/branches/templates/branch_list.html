@@ -1,16 +1,45 @@
+<!DOCTYPE HTML>
 <html>
+    <head> 
+        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="branches/templates/myCss.css">
+    </head>
     <body>
-        <p>
-            Bienvenido {{ user }}
-        </p>
+
+
+        <div class="nav nabvar-fixed-top">
+            <div class="container">
+                <ul class="pull-left">
+                    <li>Aqui va el logo</li>
+                    <li><h3>Bienvenido </h3> <small>{{ user }}</small></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="jumbotron">
+            <div class="container">
+                <h1>NFC<small>ow</small></h1>
+            </div>
+        </div>
+
         {% for b in branches %}
-            <h1> {{ b.name }} </h1>
-            <p>
-                <img src={{ b.restaurant.image.url }} height="42">
-            </p>
-            <p>
-                <a href="/menu/{{b.id}}/"> Ver más </a>
-            </p>
+
+        <div class="restaurant">
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">
+                            {{ b.name }}
+                        </div>
+                        <div class="panel-body text-center">
+                            <img src={{ b.restaurant.image.url }} style="height:42px;">
+                        </div>
+                        <div class="panel-footer">
+                            <a href="/menu/{{b.id}}/" class="btn btn-info"> Ver más </a>
+                        </div>
+                </div>
+            </div>
+        </div>
             
             {% empty %}
             <li>No articles yet.</li>
