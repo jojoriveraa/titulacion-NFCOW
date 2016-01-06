@@ -1,6 +1,96 @@
-{{ order.payment_date_time }}
-{{ order.total }}
-{{ order.id }}
-{% for product in products %}
-{{ product }}
-{% endfor %}
+<html>
+	<head>
+		<title>Detalles de orden</title>
+		<!-- todos estos links y scripts van en todos los html -->
+        {% load staticfiles %}
+        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/myCss.css' %}">
+
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
+	</head>
+
+    <body>
+    	<!-- Menu para moviles -->  
+        <div class="menu">   
+            <div class="icon-close">
+                <img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png">
+            </div>
+
+        <!-- Menu -->
+            <ul>
+                <li class="text-center">
+                    <img src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.png" class="img-circle" height="65" width="65" alt="Avatar">
+                    <p>{{ user }}</p>
+                </li>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Mis pedidos</a></li>
+                <li><a href="#"><span  class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+            </ul>
+        </div>
+        <!-- Termina menu para moviles -->
+
+        <!-- Barra de menu -->
+        <div class="navbar-custom ">
+            <div class="container">
+                <div class="navbar-header visible-lg visible-md">
+                    <a href="#"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a>
+                </div>
+                <div class="icon-menu">  <!-- Opcion de menu para moviles -->
+                    <ul class="pull-left visible-xs visible-sm">
+                        <li><a href="#">Menu <span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+                    </ul>
+                </div>
+                <ul class="pull-right visible-xs visible sm">
+                    <a href="#"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a>
+                </ul>
+                <ul class="pull-right visible-lg visible-md"> <!-- Opcion de menu para desktop -->
+                    <li style="color: #fff; margin-top:20;">Bienvenido {{ user }}</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" ><span class="glyphicon glyphicon-menu-hamburger"></span>Menu</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="#">Categorias</a></li>
+                            <li><a href="#">Mis pedidos</a></li>
+                            <li><a href="#"><span  class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Termina barra de menu -->
+
+        <!-- Contenido de la página -->
+        <div class="row well text-center" style="background-color: #7FC7AF; border: 1px solid #7FC7AF">
+            <div class="col-md-12">
+				<h1 style="color: #fff;"> Detalles de orden </h1>
+			</div>
+		</div>
+
+		<div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" style="background-color: #FFFCC4">
+						<h2> No. de Orden: {{ order.id }} </h2>
+					</div>
+          
+         				<div class="panel-body">
+						<form action="" method="post" class="text-center">
+							<h3> Fecha de orden: {{ order.payment_date_time }} </h3>
+							<h3> Total: {{ order.total }} </h3>
+							{% for product in products %}
+							<h3> Producto: {{ product }} </h3>
+							{% endfor %}
+						</form>
+					</div>
+         
+                </div>
+            </div>
+        </div>  
+
+    	
+    </body>
+</html>
