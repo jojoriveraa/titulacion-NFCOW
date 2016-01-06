@@ -64,12 +64,28 @@
         <!-- Termina barra de menu -->
 
         <!-- Contenido de la página -->
-        <h1> Ordenes del ususario </h1>
+        <div class="row well text-center">
+            <div class="col-md-12">
+                <h1> Ordenes del ususario </h1>
+            </div>
+         </div>
+
         {% for order in orders %}
-            <h2> {{ order.shopping_cart }} </h2>
-            <p>
-                <a href="/order-detail/{{order.id}}/"> Ver más </a>
-            </p>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        <h2> {{ order.shopping_cart }} </h2>               
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                        <a href="/order-detail/{{order.id}}/"> Ver más </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>    
+            
             
             {% empty %}
             <li>No articles yet.</li>
