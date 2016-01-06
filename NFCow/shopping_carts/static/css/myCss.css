@@ -1,0 +1,246 @@
+body {
+  left: 0;
+  margin: 0;
+  position: relative;
+}
+.navbar-custom a{
+	color: #F8F1E9;
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 20px;
+	padding-bottom: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
+	top: 15px;
+	text-transform: uppercase;
+}
+
+.navbar-custom li{
+	display: inline;
+}
+
+.navbar-custom {
+  background-color: #f05959;
+  border-color: #ed3b3b;
+  height: 50px;
+}
+
+.navbar-custom .navbar-brand {
+  color: #ffffff;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+}
+.navbar-custom .navbar-text {
+  color: #ffffff;
+}
+.navbar-custom .navbar-nav > li:last-child > a {
+  border-right: 1px solid #ed3b3b;
+}
+.navbar-custom .navbar-nav > li > a {
+  color: #ffffff;
+  border-left: 1px solid #ed3b3b;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+  color: #0ababa;
+  background-color: transparent;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+  color: #0ababa;
+  background-color: #ed3b3b;
+}
+.navbar-custom .navbar-nav > .disabled > a,
+.navbar-custom .navbar-nav > .disabled > a:hover,
+.navbar-custom .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-custom .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+  border-color: #ed3838;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #0ababa;
+  border-bottom-color: #0ababa;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+  background-color: #ed3b3b;
+  color: #0ababa;
+}
+.navbar-custom .navbar-nav > .open > a .caret,
+.navbar-custom .navbar-nav > .open > a:hover .caret,
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+  border-top-color: #0ababa;
+  border-bottom-color: #0ababa;
+}
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+@media (max-width: 767) {
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #0ababa;
+    background-color: transparent;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #0ababa;
+    background-color: #ed3b3b;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-custom .navbar-link {
+  color: #ffffff;
+}
+.navbar-custom .navbar-link:hover {
+  color: #0ababa;
+}
+
+.dropdown-menu{
+	height: 150px;
+}
+
+.menu {
+  left: -285px;  /* start off behind the scenes */
+  height: 100%;
+  position: fixed;
+  width: 285px;
+}
+
+.menu ul {
+  border-top: 1px solid #636366;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #636366;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 3px;
+}
+
+.menu a {
+  color: #636366;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.usuario
+{
+	color: #F8F1E9;
+	font-size: 14px;
+	padding-top: 20px;
+	padding-bottom: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	position: relative;
+	bottom: 20px;
+	text-transform: uppercase;
+}
+ .jumbotron {
+	font-family: Tahoma, Geneva, sans-serif;
+	height: 500px;
+	margin-bottom: 30px;
+	background-image: url('http://wallcomphd.com/wp-content/uploads/2015/07/Blue-Black-Yellow-Red-Material-Design-Wallpaper-HD-For-Android.png');
+}
+
+.jumbotron h1{
+	color: #fff;
+	font-size: 48px;
+	font-weight: bold;
+}
+
+.jumbotron p{
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.jumbotron .container{
+	position: relative;
+	top: 100px;
+}
+
+.panel-primary{
+	border: 1px solid #0D6759;
+}
+
+.panel-primary .panel-heading{
+	background-color: #0D6759;
+}
+
+.panel .panel-footer a{
+	color: #fff;
+}
+
+.panel a{
+	color: #00b0ff;
+}
+
+.restaurant-guides{
+	background-color: #efefef;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.restaurant-guides h2{
+	color: #393c3d;
+	font-size: 24px;
+}
+
+.restaurant-guides p{
+	font-size: 15px;
+	margin-bottom: 13px;
+}
+
+.learn-more {
+	background-color: #f7f7f7;
+}
+
+.learn-more h3{
+	font-family: 'Shift',sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.learn-more a{
+	color: #00b0ff;
+}
+
+.food{
+	background-color: #efefef;
+	border-bottom: 1px solid #dbdbdb;
+}
+
