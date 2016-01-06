@@ -1,32 +1,118 @@
 <html>
+    <head>
+        <title>Carrito de compras</title>
+
+        {% load staticfiles %}
+        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/myCss.css' %}">
+
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
+    </head>
     <body>
-		<h1>Carrito de compra: {{shopping_cart_products.0.shopping_cart}} </h1>
-            
+
+        <!-- Menu para moviles -->  
+        <div class="menu">   
+            <div class="icon-close">
+                <img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png">
+            </div>
+
+        <!-- Menu -->
+            <ul>
+                <li class="text-center">
+                    <img src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.png" class="img-circle" height="65" width="65" alt="Avatar">
+                    <p>{{ user }}</p>
+                </li>
+                <li><a href="#">Mi cuenta</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Mis pedidos</a></li>
+                <li><a href="#"><span  class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+            </ul>
+        </div>
+        <!-- Termina menu para moviles -->
+
+        <!-- Barra de menu -->
+        <div class="navbar-custom ">
+            <div class="container">
+                <div class="navbar-header visible-lg visible-md">
+                    <a href="#"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a>
+                </div>
+                <div class="icon-menu">  <!-- Opcion de menu para moviles -->
+                    <ul class="pull-left visible-xs visible-sm">
+                        <li><a href="#">Menu <span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
+                    </ul>
+                </div>
+                <ul class="pull-right visible-xs visible sm">
+                    <a href="#"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a>
+                </ul>
+                <ul class="pull-right visible-lg visible-md"> <!-- Opcion de menu para desktop -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown" ><span class="glyphicon glyphicon-menu-hamburger"></span>Menu</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="#">Categorias</a></li>
+                            <li><a href="#">Mis pedidos</a></li>
+                            <li><a href="#"><span  class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Termina barra de menu -->
+
+        <!-- Contenido de la pagina -->
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-offset-1 col-md-10 col-md-offset-1 well text-center" style="background-color: #7FC7AF; border: 1px solid #7FC7AF;">
+                   <h3 style="color: #fff;">Carrito de compra: </h3><small style="color: #fff;">{{shopping_cart_products.0.shopping_cart}} </small>
+            </div>
+        </div>
             {% for scp in shopping_cart_products %}
             
-                <h2> {{ scp.product.product_super }} </h2>
-                
-                <p>
-                    $ {{ scp.product.price }} x {{ scp.quantity }}
-                </p>
-                <p>
-                    subtotal = $ {% widthratio scp.quantity 1 scp.product.price %}
-                </p>
-                <p>
-                    <img src={{ scp.product.product_super.image.url }} height="42">
-                </p>
-                <p>
-                <a href="/shopping-cart-remove/{{ scp.id }}/{{ scp.shopping_cart.id }}"> Quitar </a>
-            </p>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center"style="background-color: #FFFCC4;">
+                                <h3> {{ scp.product.product_super }}</h3>                           
+                            </div>
+                            <div class="panel-body">
+                                <div class="thumbnail">
+                                <img src={{ scp.product.product_super.image.url }}>
+                                </div>
+                                Precio por cantidad: $ {{ scp.product.price }} x {{ scp.quantity }}
+                                <br>
+                                subtotal = $ {% widthratio scp.quantity 1 scp.product.price %}
+                            </div>
+                            <div class="panel-footer">               
+                                <a href="/shopping-cart-remove/{{ scp.id }}/{{ scp.shopping_cart.id }}" class="btn btn-info">Quitar </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+       
                 {% empty %}
                 
-                <li>Tu carrito de compra está vacio</li>
+                <div class="alert alert-warning fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <p><strong>Alerta</strong></p>
+                    Tu carrito esta vacio 
+                </div>a está vacio</li>
             {% endfor %}
-            <h2> 
-                Total: $ {{ total }}
-            </h2>
-            <p>
-                <a href="/payment/{{ total }}/{{ shopping_cart_products.0.shopping_cart.id }}/3"> Pagar </a> <a href="/shopping-cart-cancel/"> Cancelar </a>
-            </p>
+                
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        Total: $ {{ total }} 
+                        <p></p>
+                        <a href="/payment/{{ total }}/{{ shopping_cart_products.0.shopping_cart.id }}/3" class="btn btn-info" style="color:#fff;"> Pagar </a>
+                        <a href="/shopping-cart-cancel/" class="btn btn-danger" style="color:#fff;"> Cancelar </a>
+                    </div>
+
+                </div>
+                
+              
+            
     </body>
 </html>
