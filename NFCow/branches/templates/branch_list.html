@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
     <head> 
+        <title>Branches</title>
+        <!-- todos estos links y scripts van en todos los html -->
         {% load staticfiles %}
         <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -31,6 +33,7 @@
         </div>
         <!-- Termina menu para moviles -->
 
+        <!-- Barra de menu -->
         <div class="navbar-custom ">
             <div class="container">
                 <div class="navbar-header visible-lg visible-md">
@@ -58,13 +61,18 @@
                 </ul>
             </div>
         </div>
+        <!-- Termina barra de menu -->
         
+        <!-- Jumbotron -->
         <div class="jumbotron">
             <div class="container">
                 <h1>NFC<small>ow</small></h1>
             </div>
         </div>
+        <!-- Termina jumbotron -->
 
+
+        <!--Contenido de la pagina -->
         {% for b in branches %}
 
         <div class="restaurant">
