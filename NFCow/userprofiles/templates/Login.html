@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-  	<title>Log In</title>
-  	{% load staticfiles %}
+    <title>Log In</title>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   </head>
 
@@ -17,8 +17,8 @@
       <form>
         <h2 class="text-center" style="color:#fff;">Iniciar Sesión</h2>
         <div class="text-center">
-        	<img src="{% static 'img/cow2' %}" alt="cow"  style="max-width:200px;">
-        	<!-- <img src="img/cow2.png" alt="cow"  style="max-width:200px;"> -->
+          <img src="{% static 'img/cow2' %}" alt="cow"  style="max-width:200px;">
+          <!-- <img src="img/cow2.png" alt="cow"  style="max-width:200px;"> -->
         </div>
         <hr>
         <input type="email" id="inputEmail" class="form-control" placeholder="Usuario o email" required autofocus>
@@ -27,6 +27,7 @@
         <br>
         <button class="btn btn-lg btn-info btn-block" type="submit">Log in</button>
         <hr>
+        <h4><a href="#" style="color: #96D8F6;">Registrarse</a></h4>
       </form>
 
     </div> 
