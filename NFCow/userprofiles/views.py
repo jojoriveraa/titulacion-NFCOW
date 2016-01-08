@@ -9,6 +9,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from django.template import RequestContext 
 
+from userprofiles.models import CustomerProfile
+
 # Create your views here.
 
 def ingresar(request):
@@ -32,3 +34,13 @@ def ingresar(request):
 	else:
 		formulario = AuthenticationForm()
 	return render_to_response('login.html',{'formulario':formulario}, context_instance=RequestContext(request))
+
+def registrar(request):
+	if request.method=='POST':
+		formulario = UserCreationForm(request.POST)
+		if formulario.is_valid:
+			formulario.save()
+			return HttpResponseRedirect('/branches/1/')
+	else:
+		formulario = UserCreationForm()
+	return render_to_response('signup.html',{'formulario':formulario}, context_instance=RequestContext(request))

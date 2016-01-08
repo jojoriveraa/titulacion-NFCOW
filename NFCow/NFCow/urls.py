@@ -20,7 +20,7 @@ from django.contrib import admin
 
 # from branches.views import BranchDetailView
 from branches.views import BranchListView
-from userprofiles.views import ingresar
+from userprofiles.views import ingresar, registrar
 from rel_products_branches.views import ProductInBranchListView
 from orders.views import OrderDetailView, OrderListView
 from products.views import product_detail
@@ -31,7 +31,8 @@ from rel_products_shopping_carts.views import product_remove
 urlpatterns = [
     # url(r'^branches/(?P<pk>[\d]+)', BranchDetailView.as_view()),
     url(r'^branches/([\d]+)', BranchListView.as_view(), name='product-list'),
-    url(r'^ingresar/$', ingresar, name='product-detail'),
+    url(r'^login/$', ingresar, name='login'),
+    url(r'^signup/$', registrar, name='signup'),
     url(r'^menu/([\d]+)', ProductInBranchListView.as_view(), name='branch-menu'),
     url(r'^orders/', OrderListView.as_view(), name='orders-list'),    
     url(r'^order-detail/(?P<pk>[\d]+)', OrderDetailView.as_view(), name='order-detail'),    
