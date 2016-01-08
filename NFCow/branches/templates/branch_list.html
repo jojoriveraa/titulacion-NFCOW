@@ -65,7 +65,7 @@
         <!-- Termina barra de menu -->
         
         <!-- Jumbotron -->
-        <div class="jumbotron" style="background-image: url('{% static 'img/jumbo.jpg' %}'); height: 600px;">
+        <div class="jumbotron" style="background-image: url('{% static 'img/jumbo2.jpg' %}');">
             <div class="container">
             </div>
         </div>
@@ -82,7 +82,7 @@
                             {{ b.name }}
                         </div>
                         <div class="panel-body text-center">
-                            <img src={{ b.restaurant.image.url }} style="height:42px;">
+                            <img src={{ b.restaurant.image.url }} style="height:120px;">
                         </div>
                         <div class="panel-footer">
                             <a href="/menu/{{b.id}}/" class="btn btn-info"> Ver más </a>
