@@ -22,7 +22,7 @@ def pay_shopping_cart(request, total, sc_id, top_id):
 	my_shopping_cart = Shopping_Cart.objects.filter(id = sc_id)[0]
 	my_type_of_payment = TypeOfPayment.objects.filter(id = top_id)[0]
 	order = Order.objects.create(payment_date_time = my_payment_date_time, total = my_total, shopping_cart = my_shopping_cart, type_of_payment = my_type_of_payment)
-	q_user = User.objects.filter(user = request.user)[0]
+	q_user = User.objects.filter(username = request.user)[0]
 	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), user = q_user)
 	return HttpResponseRedirect('/order-detail/%s' % order.id)
 	

@@ -41,6 +41,6 @@ urlpatterns = [
     url(r'^shopping-cart-cancel/', cancel_shopping_cart, name='shopping-cart-cancel'),    
     url(r'^shopping-cart-remove/(?P<id>[\d]+)/(?P<sc>[\d]+)', product_remove, name='shopping-cart-remove-product'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.MEDIA_ROOT, }),
-    url(r'^payment/(?P<total>[\w\-\W]+)/(?P<sc_id>[\d])/(?P<top_id>[\d])', pay_shopping_cart, name='payment'),    
+    url(r'^payment/(?P<total>[\w\-\W]+)/(?P<sc_id>[\d]+)/(?P<top_id>[\d]+)', pay_shopping_cart, name='payment'),    
     url(r'^admin/', admin.site.urls),
 ]

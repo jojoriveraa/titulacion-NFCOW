@@ -40,7 +40,8 @@ def registrar(request):
 		formulario = UserCreationForm(request.POST)
 		if formulario.is_valid:
 			formulario.save()
-			return HttpResponseRedirect('/branches/1/')
+			return HttpResponseRedirect('/login')
 	else:
 		formulario = UserCreationForm()
 	return render_to_response('signup.html',{'formulario':formulario}, context_instance=RequestContext(request))
+

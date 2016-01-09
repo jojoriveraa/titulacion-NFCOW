@@ -16,8 +16,15 @@ class OrderDetailView(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(OrderDetailView, self).get_context_data(**kwargs)
 		context['now'] = timezone.now()
-		context['products'] = Rel_Product_Shopping_Cart.objects.filter(shopping_cart_id = self.kwargs['pk'])
+		# context['products'] = Rel_Product_Shopping_Cart.objects.filter(shopping_cart_id = self.kwargs['pk'])
+		context['products'] = self.get_shopping_cart_products(self.kwargs['pk'])
 		return context
+	
+	def get_shopping_cart_products(self, id_shopping_cart):
+		q1 = Order.objects.filter(id = id_shopping_cart)[0]
+		q2 = Rel_Product_Shopping_Cart.objects.filter(shopping_cart = q1.shopping_cart)
+		products = q2
+		return products
 
 class OrderListView(ListView):
 	model = Order
@@ -32,4 +39,4 @@ class OrderListView(ListView):
 		return context
 	
 	def get_queryset(self):
-		return Order.objects.filter(shopping_cart__customer__user = self.request.user)
+		return Order.objects.filter(shopping_cart__user = self.request.user)
