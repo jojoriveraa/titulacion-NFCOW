@@ -17,13 +17,27 @@
       <form id='formulario' method='post' action=''>{% csrf_token %}
         <h2 class="text-center" style="color:#fff;">Iniciar Sesión</h2>
         <div class="text-center">
-          <img src="{% static 'img/cow2' %}" alt="cow"  style="max-width:200px;">
+          <img src="{% static 'img/cow2.png' %}" alt="cow"  style="max-width:200px;">
           <!-- <img src="img/cow2.png" alt="cow"  style="max-width:200px;"> -->
         </div>
-        <table>{{formulario}}</table>
+        <hr>
+        <div class="row-fluid text-center">
+          <div class="col-md-3">
+            <label for="" style="color: #fff;" class="pull-left">Usuario: </label>
+          </div>
+          <div class="col-md-9 ">{{formulario.username}}</div>
+        </div>
+          <br>
+          <br>
+          <div class="row-fluid text-center">
+            <div class="col-md-3"><label for="" style="color: #fff;" class="pull-left">Password:</label></div>
+            <div class="col-md-9">{{formulario.password}}</div>
+          </div>
+        <br>
         <p>
-          <input type='submit' value='Ingresar'/>
+          <input class="btn btn-info btn-block" type='submit' value='Ingresar'/>
         </p>
+        <hr>
         <h4><a href="/signup/" style="color: #96D8F6;">Registrarse</a></h4>
       </form>
       
