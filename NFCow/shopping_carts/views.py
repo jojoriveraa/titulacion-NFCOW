@@ -8,12 +8,12 @@ from .models import Shopping_Cart
 from orders.models import Order
 from rel_products_shopping_carts.models import Rel_Product_Shopping_Cart
 from types_of_payment.models import TypeOfPayment
-from userprofiles.models import CustomerProfile
+from django.contrib.auth.models import User
 # Create your views here.
 
 def cancel_shopping_cart(request):
-	q_customerprofile = CustomerProfile.objects.filter(user = request.user)[0]
-	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), customer = q_customerprofile)
+	q_user = User.objects.filter(username = request.user)[0]
+	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), user = q_user)
 	return HttpResponseRedirect('/branches/1')
 
 def pay_shopping_cart(request, total, sc_id, top_id):
@@ -22,8 +22,8 @@ def pay_shopping_cart(request, total, sc_id, top_id):
 	my_shopping_cart = Shopping_Cart.objects.filter(id = sc_id)[0]
 	my_type_of_payment = TypeOfPayment.objects.filter(id = top_id)[0]
 	order = Order.objects.create(payment_date_time = my_payment_date_time, total = my_total, shopping_cart = my_shopping_cart, type_of_payment = my_type_of_payment)
-	q_customerprofile = CustomerProfile.objects.filter(user = request.user)[0]
-	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), customer = q_customerprofile)
+	q_user = User.objects.filter(user = request.user)[0]
+	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), user = q_user)
 	return HttpResponseRedirect('/order-detail/%s' % order.id)
 	
 

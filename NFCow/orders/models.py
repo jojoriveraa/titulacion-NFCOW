@@ -11,7 +11,7 @@ class Order(models.Model):
 	type_of_payment = models.ForeignKey(TypeOfPayment)
 	
 	def user(self):
-		return self.shopping_cart.customer.user.username
+		return self.shopping_cart.user.username
 
 	def __str__(self):
-		return self.payment_date_time.strftime("%Y-%m-%d %H:%M:%S") + " ; " + self.shopping_cart.customer.user.username
+		return self.payment_date_time.strftime("%Y-%m-%d %H:%M:%S") + " ; " + self.shopping_cart.user.username

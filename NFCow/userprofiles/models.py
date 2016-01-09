@@ -9,4 +9,4 @@ class CustomerProfile(models.Model):
     profile_picture = models.ImageField(upload_to='Customers', blank=True)
     
     def __str__(self):
-        return self.user.username
+        return "%s's profile" % self.user  
