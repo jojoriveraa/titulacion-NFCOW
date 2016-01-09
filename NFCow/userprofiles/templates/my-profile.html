@@ -1,0 +1,18 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<h1>
+			{{ customer.user }}
+		</h1>
+		<h2>
+			{{ customer.nombre }}
+		</h2>
+		<img src={{ customer.avatar.url }} />
+		<form action="" method="post" class="text-center" enctype="multipart/form-data">
+			{% csrf_token %}
+			{{formulario.as_p}}
+			<input type="submit" value="Aceptar" class="btn btn-info pull-left" style="color: #fff;" />
+		</form>
+	</body>
+</html>

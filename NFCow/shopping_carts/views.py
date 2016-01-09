@@ -41,7 +41,7 @@ class ShoppingCartListView(ListView):
 		return context
 	
 	def get_queryset(self):
-		return Rel_Product_Shopping_Cart.objects.filter(shopping_cart_id = int(self.args[0]))
+		return Rel_Product_Shopping_Cart.objects.filter(shopping_cart__user__username = self.request.user.username, shopping_cart__available = True )
 	
 	def get_total(self):
 		products_in_sc = self.get_queryset()

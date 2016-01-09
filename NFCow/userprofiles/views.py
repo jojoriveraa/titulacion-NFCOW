@@ -9,6 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from django.template import RequestContext 
 
+from .forms import CustomerProfileForm
 from userprofiles.models import CustomerProfile
 
 # Create your views here.
@@ -45,3 +46,18 @@ def registrar(request):
 		formulario = UserCreationForm()
 	return render_to_response('signup.html',{'formulario':formulario}, context_instance=RequestContext(request))
 
+def my_profile(request):
+	if request.method=='POST':
+		instance = get_object_or_404(CustomerProfile, user__username = request.user.username)
+		formulario = CustomerProfileForm(request.POST, request.FILES, instance = instance)
+		if formulario.is_valid:
+			my_profile = formulario.save(commit=False)
+			my_profile.avatar = request.FILES['avatar']
+			my_profile.save()
+			return HttpResponseRedirect('/my-profile')
+	else:
+		q_customer = CustomerProfile.objects.filter(user = request.user)[0]
+		if not q_customer:
+			q_customer = CustomerProfile.objects.create(user = request.user)
+		formulario = CustomerProfileForm
+	return render_to_response('my-profile.html',{'formulario':formulario, 'customer': q_customer}, context_instance=RequestContext(request))
