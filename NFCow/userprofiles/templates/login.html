@@ -21,6 +21,7 @@
           <!-- <img src="img/cow2.png" alt="cow"  style="max-width:200px;"> -->
         </div>
         <hr>
+
         <div class="row-fluid text-center">
           <div class="col-md-3">
             <label for="" style="color: #fff;" class="pull-left">Usuario: </label>
@@ -33,10 +34,15 @@
             <div class="col-md-3"><label for="" style="color: #fff;" class="pull-left">Password:</label></div>
             <div class="col-md-9">{{formulario.password}}</div>
           </div>
+
         <br>
         <p>
-          <input class="btn btn-info btn-block" type='submit' value='Ingresar'/>
+          <input class="btn btn-info btn-block visible-sm visible-xs" type='submit' value='Ingresar'/>
         </p>
+        <div class="visible-lg visible-md text-center">
+          <br>
+        <input class="btn btn-info btn-md" type='submit'value='Ingresar'>
+        </div>
         <hr>
         <h4><a href="/signup/" style="color: #96D8F6;">Registrarse</a></h4>
       </form>
