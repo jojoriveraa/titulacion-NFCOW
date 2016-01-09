@@ -1,5 +1,14 @@
 <html>
 	<head>
+        <title>Mi perfil</title>
+        {% load staticfiles %}
+        <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'css/myCss.css' %}">
+
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
 	</head>
 	<body>
 
@@ -55,8 +64,49 @@
         <!-- Termina barra de menu -->
 
 
+        <!--Contenido de la página -->
+        <div class="row well text-center" style="background-color: #7FC7AF; border: 1px solid #7FC7AF;">
+            <div class="col-md-12">                
+                <h1 style="color: #fff;"> Usuario: {{ customer.user }} </h1>
+            </div>
+        </div>
 
 
+
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" style="background-color: #FFFCC4;">
+                        <h2> {{ customer.nombre }} </h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="thumbnail">
+                            <img src={{ customer.avatar.url }} />                  
+                        </div>    
+                        <div class="thumbnail text-center">
+                            <h4> {% csrf_token %} </h4>
+                            <h4>{{formulario.as_p}}</h4>
+                            
+                                    
+                            
+                        </div>
+                        <form action="" method="post" class="text-center" enctype="multipart/form-data">
+                        <input type="submit" value="Aceptar" class="btn btn-info pull-right" style="color: #fff;" />
+                        </form>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+<!--
 		<h1>
 			{{ customer.user }}
 		</h1>
@@ -69,8 +119,7 @@
 			{{formulario.as_p}}
 			<input type="submit" value="Aceptar" class="btn btn-info pull-left" style="color: #fff;" />
 		</form>
-
-
+-->
 
 		
 	</body>
