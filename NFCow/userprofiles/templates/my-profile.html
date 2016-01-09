@@ -86,7 +86,7 @@
                         <div class="thumbnail">
                             <img src={{ customer.avatar.url }} />                  
                         </div>    
-                        <div class="thumbnail text-center">
+                        <div class="thumbnail" align="center">
                             <h4> {% csrf_token %} </h4>
                             <h4>{{formulario.as_p}}</h4>
                             
@@ -94,7 +94,7 @@
                             
                         </div>
                         <form action="" method="post" class="text-center" enctype="multipart/form-data">
-                        <input type="submit" value="Aceptar" class="btn btn-info pull-right" style="color: #fff;" />
+                        <input type="submit" value="Aceptar" class="btn btn-info" align="center" style="color: #fff;" />
                         </form>
                      </div>
                 </div>
