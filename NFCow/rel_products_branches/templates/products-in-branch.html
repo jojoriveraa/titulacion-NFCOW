@@ -11,20 +11,45 @@
         <script src="{% static 'js/app.js' %}"></script>
     </head>
     <body>
-   <!-- Barra de menu -->
+      <!-- Menu para moviles -->  
+        <div class="menu">   
+            <div class="icon-close">
+                <img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png">
+            </div>
+
+        <!-- Menu -->
+            <ul>
+                <li class="text-center">
+                    {% if avatar %}
+                        <img src="{{ avatar }}" class="img-circle" height="65" width="65" alt="Avatar">
+                    {% endif %}
+                    <p>{{ user }}</p>
+                </li>
+                <li><a href="/branches/1"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="/my-profile/"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li>
+                <li><a href="/shopping-cart/1"><span class="glyphicon glyphicon-shopping-cart"></span> Mi carrito</a></li>
+                <li><a href="/orders/"><span class="glyphicon glyphicon-cutlery"></span> Mis pedidos</a></li>
+                <li><a href="/logout/"><span  class="glyphicon glyphicon-log-out"></span> Cerrar sesión</a></li>
+            </ul>
+        </div>
+        <!-- Termina menu para moviles -->
+
+        <!-- Barra de menu -->
         <div class="navbar-custom ">
             <div class="container">
                 <div class="navbar-header visible-lg visible-md">
-                    <a href="/branches/1"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a>
+                    <a href="/branches/1"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a> 
                 </div>
                 <div class="icon-menu">  <!-- Opcion de menu para moviles -->
                     <ul class="pull-left visible-xs visible-sm">
                         <li><a href="#">Menu <span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
                     </ul>
                 </div>
+                <!--
                 <ul class="pull-right visible-xs visible sm">
                     <a href="/branches/1"><img src="{% static 'img/logo-white.png' %}" style="max-width:100px;"></a>
                 </ul>
+            -->
                 <ul class="pull-right visible-lg visible-md"> <!-- Opcion de menu para desktop -->
                     <li style="color: #fff; margin-top:20;">Bienvenido {{ user }}</li>
                     <li class="dropdown">
@@ -41,7 +66,6 @@
             </div>
         </div>
         <!-- Termina barra de menu -->
-        
 
         <!-- Contenido de la pagina -->
         <div class="row well text-center" style="background-color: #7FC7AF; border: 1px solid #7FC7AF;">

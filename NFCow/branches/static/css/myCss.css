@@ -5,14 +5,14 @@ body {
 }
 .navbar-custom a{
 	color: #F8F1E9;
-	font-size: 14px;
+	font-size: 30px;
 	font-weight: bold;
 	padding-top: 20px;
 	padding-bottom: 14px;
 	padding-left: 10px;
 	padding-right: 10px;
 	position: relative;
-	top: 15px;
+	top: 35px;
 	text-transform: uppercase;
 }
 
@@ -23,7 +23,7 @@ body {
 .navbar-custom {
   background-color: #f05959;
   border-color: #ed3b3b;
-  height: 50px;
+  height: 100px;
 }
 
 .navbar-custom .navbar-brand {
@@ -154,7 +154,7 @@ body {
 
 .menu a {
   color: #636366;
-  font-size: 15px;
+  font-size: 25px;
   text-decoration: none;
   text-transform: uppercase;
 }
