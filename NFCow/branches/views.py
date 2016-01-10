@@ -5,6 +5,8 @@ from django.views.generic.list import ListView
 from django.utils import timezone
 
 from .models import Branch
+
+from django.template import Context
 # Create your views here.
 
 class BranchDetailView(DetailView):

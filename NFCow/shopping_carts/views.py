@@ -25,7 +25,6 @@ def pay_shopping_cart(request, total, sc_id, top_id):
 	q_user = User.objects.filter(username = request.user)[0]
 	Shopping_Cart.objects.create_shopping_cart(date_time = timezone.now(), user = q_user)
 	return HttpResponseRedirect('/order-detail/%s' % order.id)
-	
 
 class ShoppingCartListView(ListView):
 	model = Rel_Product_Shopping_Cart
