@@ -14,7 +14,7 @@ class CustomerProfile(models.Model):
     objects = CustomerProfileManager()
     
     def avatar_url(self):
-        return self.avatar.url
+            return self.avatar.url
     
     def __str__(self):
         return "%s's profile" % self.user

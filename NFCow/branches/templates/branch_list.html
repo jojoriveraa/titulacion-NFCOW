@@ -23,7 +23,9 @@
         <!-- Menu -->
             <ul>
                 <li class="text-center">
-                    <img src="{{ avatar }}" class="img-circle" height="65" width="65" alt="Avatar">
+                    {% if avatar %}
+                        <img src="{{ avatar }}" class="img-circle" height="65" width="65" alt="Avatar">
+                    {% endif %}
                     <p>{{ user }}</p>
                 </li>
                 <li><a href="/my-profile/"><span class="glyphicon glyphicon-user"></span>Mi cuenta</a></li>

@@ -36,7 +36,7 @@ urlpatterns = [
     url(r'^login/$', ingresar, name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/login'}),
     url(r'^signup/$', registrar, name='signup'),
-    url(r'^my-profile/$', my_profile, name='branch-menu'),
+    url(r'^my-profile/$', my_profile, name='my-profile'),
     
     # rel_products_branches.views
     url(r'^menu/([\d]+)', ProductInBranchListView.as_view(), name='branch-menu'),
