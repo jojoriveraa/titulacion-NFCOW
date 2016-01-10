@@ -64,7 +64,9 @@
                     </div>
                     <div class="panel-body">
                         <div class="thumbnail">
-                            <img src={{ customer.avatar.url }} style="max-width:200px;" />                  
+                                {% if avatar %}
+                                        <img src={{ customer.avatar.url }} style="max-width:200px;" />                  
+                                {% endif %}
                         </div>    
                         <div class="thumbnail" align="center">
                             <h4> {% csrf_token %} </h4>
@@ -82,26 +84,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-<!--
-		<h1>
-			{{ customer.user }}
-		</h1>
-		<h2>
-			{{ customer.nombre }}
-		</h2>
-		<img src={{ customer.avatar.url }} />
-		<form action="" method="post" class="text-center" enctype="multipart/form-data">
-			{% csrf_token %}
-			{{formulario.as_p}}
-			<input type="submit" value="Aceptar" class="btn btn-info pull-left" style="color: #fff;" />
-		</form>
--->
 
 		
 	</body>
