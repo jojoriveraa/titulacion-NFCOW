@@ -80,11 +80,27 @@
           
          				<div class="panel-body">
 						<form action="" method="post" class="text-center">
-							<h3> Fecha de orden: {{ order.payment_date_time }} </h3>
-							<h3> Total: {{ order.total }} </h3>
-							{% for product in products %}
-							<h3> Detalles: {{ product }} </h3>
-							{% endfor %}
+                            <table class="table table-bordered table-condensed table-striped table-hover">
+                                
+                            <tr>
+                                <th >Fecha de orden:</th>
+                                <th>{{ order.payment_date_time }}</th>
+                            </tr>
+                            <tr>
+                                <th>Total:</th>
+                                <th> {{ order.total }}</th>
+                            </tr>
+                            {% for product in products %}
+                            <tr>
+                                <th>Detalles:</th>
+                                <th>{{ product }}</th>
+                            </tr>
+                            {% endfor %}
+                            </table>
+                            <p class="visible-lg visible-md">  
+                            <a href="/orders/" class="btn btn-info" style="color:#fff;">Regresar</a>
+                            </p>
+                            <a href="/orders/" class="btn btn-info btn-block visible-xs visible-sm" style="color:#fff;">Home</a>
 						</form>
 					</div>
          

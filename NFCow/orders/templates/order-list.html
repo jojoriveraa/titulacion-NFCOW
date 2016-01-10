@@ -79,9 +79,14 @@
                         <h2> Orden pagada </h2>               
                     </div>
                     <div class="panel-body text-center">
-                        <h2> {{ order.shopping_cart }} </h2>
+                        <table class="table table-bordered ">
+                        <tr >
+                            <th>Detalles de orden:</th>
+                            <th>{{ order.shopping_cart }}</th>
+                        </tr>
+                        </table>
                         <p>
-                        <a href="/order-detail/{{order.id}}/"> Ver más </a>
+                        <a href="/order-detail/{{order.id}}/" class="btn btn-info" style="color: #fff;"> Ver más </a>
                         </p>
                     </div>
                 </div>

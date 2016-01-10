@@ -80,21 +80,23 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center" style="background-color: #FFFCC4;">
-                        <h2> {{ customer.nombre }} </h2>
+                        <h2>Nombre Actual: {{ customer.nombre }} </h2>
                     </div>
                     <div class="panel-body">
                         <div class="thumbnail">
-                            <img src={{ customer.avatar.url }} />                  
+                            <img src={{ customer.avatar.url }} style="max-width:200px;" />                  
                         </div>    
                         <div class="thumbnail" align="center">
                             <h4> {% csrf_token %} </h4>
                             <h4>{{formulario.as_p}}</h4>
                             
                                     
-                            
                         </div>
-                        <form action="" method="post" class="text-center" enctype="multipart/form-data">
-                        <input type="submit" value="Aceptar" class="btn btn-info" align="center" style="color: #fff;" />
+                        <form action="" method="post" class="text-center visible-lg visible-md" enctype="multipart/form-data">
+                        <input type="submit" value="Aceptar" class="btn btn-info " align="center" style="color: #fff;" />
+                        </form>
+                         <form action="" method="post" class="text-center visible-xs visible-sm" enctype="multipart/form-data">
+                        <input type="submit" value="Aceptar" class="btn btn-info btn-block " align="center" style="color: #fff;" />
                         </form>
                      </div>
                 </div>
